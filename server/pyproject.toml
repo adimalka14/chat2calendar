@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "chat2calendar-server"
+version = "0.1.0"
+description = ""
+authors = ["Adi <you@example.com>"]
+packages = [{ include = "app" }]
+
+[tool.poetry.dependencies]
+python = ">=3.9,<4.0"
+fastapi = "^0.116.1"
+uvicorn = { version = "^0.35.0", extras = ["standard"] }
+pydantic = "^2.9.0"
+pydantic-settings = "^2.4.0"
+
+[tool.poetry.scripts]
+dev = "app.cli:dev"
+start = "app.cli:prod"
