@@ -1,16 +1,24 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+from app.config import settings
+from app.modules.auth.auth_controller import router as auth_router
 
-app = FastAPI()
+app = FastAPI(title=settings.app_name, debug=settings.debug)
 
-@app.get("/")
-def root():
-    return {"ok": True, "docs": "/docs", "health": "/health"}
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.allowed_origins,
+    allow_credentials=True,
+    allow_methods=settings.allowed_methods,
+    allow_headers=settings.allowed_headers,
+)
 
+
+app.include_router(auth_router)
 
 @app.get("/health")
 def health():
-    print('dev')
-    return {"status": "health"}
+    return {"status": "ok"}
 
 
 # """
