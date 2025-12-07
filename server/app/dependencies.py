@@ -2,11 +2,14 @@
 FastAPI dependencies for the Chat2Calendar server.
 """
 
-from fastapi import Depends, HTTPException, status
+from fastapi import Depends
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from typing import Optional
 from fastapi.security import OAuth2PasswordBearer
 from app.modules.auth.auth_service import AuthService
+
+from fastapi import HTTPException, status
+
 
 
 # Security scheme

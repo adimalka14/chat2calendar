@@ -29,7 +29,7 @@ class Settings(BaseSettings):
     
     # OpenAI
     openai_api_key: str
-    openai_model: str = "gpt-3.5-turbo"
+    openai_model: str = "gpt-4o-mini"
     
     # Redis (Optional)
     redis_url: Optional[str] = None
@@ -47,3 +47,6 @@ class Settings(BaseSettings):
 
 # Global settings instance
 settings = Settings()
+
+
+

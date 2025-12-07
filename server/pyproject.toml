@@ -13,7 +13,11 @@ pydantic = "^2.9.0"
 pydantic-settings = "^2.4.0"
 httpx = "^0.28.1"
 python-jose = {extras = ["cryptography"], version = "^3.5.0"}
+openai = ">=1.44.0"
 
 [tool.poetry.scripts]
 dev = "app.cli:dev"
 start = "app.cli:prod"
+
+
+
