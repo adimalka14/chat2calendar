@@ -73,12 +73,9 @@ class GoogleCalendarService:
             params["timeMin"] = _rfc3339(start_date)
         if end_date:
             params["timeMax"] = _rfc3339(end_date)
-        print(params)
         async with httpx.AsyncClient() as client:
             try:
                 response = await client.get(url, headers=headers, params=params)
-                print("GCAL STATUS:", response.status_code)
-                print("GCAL BODY:", response.text)
 
                 response.raise_for_status()
                 data = response.json()
