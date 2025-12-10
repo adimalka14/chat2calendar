@@ -6,15 +6,42 @@ An AI-powered calendar assistant that enables natural language interaction with 
 
 Chat2Calendar bridges the gap between natural conversation and calendar management. Users can create, update, delete, and query calendar events using plain language in Hebrew or English. The system intelligently interprets user intent and performs calendar operations through an AI agent with persistent conversation memory.
 
+## Live Demo (UI)
+
+Frontend (read-only demo):  
+https://chat2calendar.vercel.app
+
+## Backend API
+
+Backend (FastAPI on Render, protected behind OAuth & auth middleware):  
+https://chat2calendar.onrender.com
+
+> Note: Direct calls require a valid session token and Google OAuth,  
+> so public users will not be able to use the API directly.
+
+ ## Google OAuth & Demo Mode
+
+This project uses Google Calendar OAuth with sensitive scopes.  
+The app is currently in **Google test mode**, so only approved test users can sign in.
+
+For that reason, public users may see an error like:  
+“Access blocked: app has not completed the Google verification process”.
+
+To demonstrate the system, please refer to the demo video and screenshots below.
+
+## Demo Video
+
+Short demo (Hebrew, with UI + calendar flow):  
+[Watch on YouTube](https://your-demo-link-here)
+
+## Screenshots
+
+- Chat2Calendar main chat screen
+- Example: creating an event
+- Example: updating & deleting an event
+
+
 ## Technologies
-
-### Frontend
-- **Next.js 15** - React framework with App Router
-- **TypeScript** - Type-safe development
-- **Tailwind CSS** - Utility-first styling
-- **shadcn/ui** - Modern UI component library
-- **React Hooks** - Custom state management
-
 ### Backend
 - **FastAPI** - High-performance Python web framework
 - **OpenAI API** - GPT-4 for natural language processing and function calling
@@ -22,6 +49,12 @@ Chat2Calendar bridges the gap between natural conversation and calendar manageme
 - **Google OAuth2** - Secure authentication
 - **Pydantic** - Data validation and settings management
 - **httpx** - Async HTTP client for API calls
+### Frontend
+- **Next.js 15** - React framework with App Router
+- **TypeScript** - Type-safe development
+- **Tailwind CSS** - Utility-first styling
+- **shadcn/ui** - Modern UI component library
+- **React Hooks** - Custom state management
 
 ## Architecture & Usage Flow
 
