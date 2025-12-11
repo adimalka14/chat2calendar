@@ -44,8 +44,8 @@ async def google_login(request: GoogleLoginRequest, response: Response):
             key="google_refresh_token",
             value=rt,
             httponly=True,
-            samesite="lax",
-            secure=False,
+            samesite="none",
+            secure=True,
             path="/",
             max_age=60*60*24*30,
         )
