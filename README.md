@@ -19,7 +19,7 @@ https://chat2calendar.onrender.com
 > Note: Direct calls require a valid session token and Google OAuth,  
 > so public users will not be able to use the API directly.
 
- ## Google OAuth & Demo Mode
+## Google OAuth & Demo Mode
 
 This project uses Google Calendar OAuth with sensitive scopes.  
 The app is currently in **Google test mode**, so only approved test users can sign in.
@@ -32,7 +32,7 @@ To demonstrate the system, please refer to the demo video and screenshots below.
 ## Demo Video
 
 Short demo (Hebrew, with UI + calendar flow):  
-[Watch on YouTube](https://your-demo-link-here)
+[![Watch the demo](https://img.youtube.com/vi/4PhgkIfHd3M/maxresdefault.jpg)](https://youtu.be/4PhgkIfHd3M)
 
 ## Screenshots
 
@@ -78,23 +78,23 @@ The application follows a modular architecture with clear separation of concerns
 ### Request Flow
 
 1. **Authentication**
-   - User initiates Google OAuth flow from the frontend
-   - Backend exchanges authorization code for access/refresh tokens
-   - Tokens are stored and used for subsequent API calls
+    - User initiates Google OAuth flow from the frontend
+    - Backend exchanges authorization code for access/refresh tokens
+    - Tokens are stored and used for subsequent API calls
 
 2. **Chat Interaction**
-   - User sends a natural language message (e.g., "Schedule a meeting tomorrow at 3pm")
-   - Frontend sends request to `/ai/chat` endpoint with user message and conversation context
-   - Backend AI agent processes the message using OpenAI with function calling
-   - Agent determines if calendar operations are needed and calls appropriate tools
-   - Calendar service executes operations via Google Calendar API
-   - Agent formulates a natural language response based on results
-   - Response is returned to the frontend and displayed to the user
+    - User sends a natural language message (e.g., "Schedule a meeting tomorrow at 3pm")
+    - Frontend sends request to `/ai/chat` endpoint with user message and conversation context
+    - Backend AI agent processes the message using OpenAI with function calling
+    - Agent determines if calendar operations are needed and calls appropriate tools
+    - Calendar service executes operations via Google Calendar API
+    - Agent formulates a natural language response based on results
+    - Response is returned to the frontend and displayed to the user
 
 3. **Memory Management**
-   - Conversation history is maintained per user and conversation session
-   - Recent messages (last 10) are included in each AI request for context
-   - Memory is stored in-memory (can be extended to persistent storage)
+    - Conversation history is maintained per user and conversation session
+    - Recent messages (last 10) are included in each AI request for context
+    - Memory is stored in-memory (can be extended to persistent storage)
 
 ### Module Structure
 
@@ -117,19 +117,19 @@ The application follows a modular architecture with clear separation of concerns
 The application implements the standard OAuth2 authorization code flow:
 
 1. **Authorization Request**
-   - User clicks "Sign in with Google"
-   - Frontend redirects to Google's authorization endpoint
-   - Required scopes: `openid`, `email`, `profile`, `https://www.googleapis.com/auth/calendar`
+    - User clicks "Sign in with Google"
+    - Frontend redirects to Google's authorization endpoint
+    - Required scopes: `openid`, `email`, `profile`, `https://www.googleapis.com/auth/calendar`
 
 2. **Token Exchange**
-   - Google redirects back with authorization code
-   - Backend exchanges code for access token and refresh token
-   - Tokens are securely stored (typically in HTTP-only cookies or secure storage)
+    - Google redirects back with authorization code
+    - Backend exchanges code for access token and refresh token
+    - Tokens are securely stored (typically in HTTP-only cookies or secure storage)
 
 3. **Token Management**
-   - Access tokens are used for API requests
-   - Refresh tokens are used to obtain new access tokens when expired
-   - Middleware validates and injects tokens into request context
+    - Access tokens are used for API requests
+    - Refresh tokens are used to obtain new access tokens when expired
+    - Middleware validates and injects tokens into request context
 
 ### Calendar API Integration
 
