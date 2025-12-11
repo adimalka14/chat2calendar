@@ -10,19 +10,19 @@ from app.shared.middleware.google_token import GoogleAccessTokenMiddleware
 app = FastAPI(title=settings.app_name, debug=settings.debug)
 
 app.add_middleware(
+    AppAuthMiddleware,
+    protected_prefixes=("/ai",))
+app.add_middleware(
+    GoogleAccessTokenMiddleware,
+    protected_prefixes=("/ai",))
+
+app.add_middleware(
     CORSMiddleware,
     allow_origins=settings.allowed_origins,
     allow_credentials=True,
     allow_methods=settings.allowed_methods,
     allow_headers=settings.allowed_headers,
 )
-
-app.add_middleware(
-    AppAuthMiddleware,
-    protected_prefixes=("/ai",))
-app.add_middleware(
-    GoogleAccessTokenMiddleware,
-    protected_prefixes=("/ai",))
 
 app.include_router(auth_router)
 app.include_router(ai_router)
