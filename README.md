@@ -9,7 +9,11 @@ Chat2Calendar bridges the gap between natural conversation and calendar manageme
 ## Live Demo (UI)
 
 Frontend (read-only demo):  
-https://chat2calendar.vercel.app
+https://chat2calendar.vercel.app  
+
+> Note: The deployed application is currently running in **test mode**.  
+> If you would like to be added as a test user to access the live demo with Google Calendar integration,  
+> please contact me at **adimalka14@gmail.com** and I will add your Google account to the approved test users list.
 
 ## Backend API
 
